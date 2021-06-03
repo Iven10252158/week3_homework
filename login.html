@@ -17,12 +17,12 @@
         <div class="card-body py-5">
             <div class="h4 card-title text-center">登入</div>
                 <div class="form-group">
-                <label for="email" class="col-form-label" >帳號</label>
-                <input type="email" class="account form-control" placeholder="請輸入電子郵件" v-model="account" @keyup.enter='login'>
+                <label for="email" class="col-form-label">帳號</label>
+                <input type="email" id="email" class="account form-control" placeholder="請輸入電子郵件" v-model="account" @keyup.enter='login'>
                 </div>
                 <div class="form-group">
                 <label for="password" class="col-form-label" >密碼</label>
-                <input type="password" class="password form-control" placeholder="請輸入密碼" v-model="password" @keyup.enter='login'>
+                <input type="password" id="password" class="password form-control" placeholder="請輸入密碼" v-model="password" @keyup.enter='login'>
                 <a href="#"><small>忘記密碼?</small></a>
                 </div>
                 <div class="d-flex justify-content-end">
