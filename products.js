@@ -111,7 +111,7 @@ const app={
                     console.log(err);
                 })
         },
-        createImages(){
+        createdImages(){
             this.tempProduct.imagesUrl=[''];
         }
     },
