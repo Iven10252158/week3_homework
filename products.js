@@ -8,7 +8,8 @@ const app={
             path:'iven_vue3_course',
             allProducts:[],
             tempProduct:{
-                imageUrl:[]
+                imageUrl:'',
+                imagesUrl:[]
             },
             isNew:false
 
@@ -20,12 +21,14 @@ const app={
             window.location='login.html';
         },
         getProducts(){
-            axios.get(`${this.url}api/${this.path}/admin/products/all`)
+            axios.get(`${this.url}api/${this.path}/admin/products`)
                 .then((res)=>{
+                    console.log(res);
                     this.allProducts=res.data.products;
                     console.log(res);
-                    console.log(this.allProducts);
-                    
+                    // console.log(this.allProducts);
+                }).catch((err)=>{
+                    console.log(err)
                 })
         },
         openModal(isNew,item){
@@ -35,7 +38,7 @@ const app={
                 productModal.show();
                 this.isNew=true;
                 this.tempProduct={
-                    imageUrl:[]
+                    // imageUrl:[]
                 }
                 break;
                 case 'edit':
@@ -58,6 +61,8 @@ const app={
                         console.log(res);
                         productModal.hide();
                         this.getProducts();
+                    }).catch((err)=>{
+                        console.log(err);
                     })
             }else{
                 // put
@@ -66,6 +71,8 @@ const app={
                         console.log(res);
                         productModal.hide();
                         this.getProducts();
+                    }).catch((err)=>{
+                        console.log(err);
                     })
             }
         },
@@ -97,9 +104,15 @@ const app={
                     if(res.data.success){
                         this.tempProduct.imageUrl=res.data.imageUrl;
                         console.log(this.tempProduct.imageUrl);
+                    }else{
+                        console.log(res);
                     }
-                    
+                }).catch((err)=>{
+                    console.log(err);
                 })
+        },
+        createImages(){
+            this.tempProduct.imagesUrl=[''];
         }
     },
     mounted() {
